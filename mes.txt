@@ -1,0 +1,33 @@
+MESSAGE sip:user2@domain.com SIP/2.0
+Via: SIP/2.0/TCP user1pc.domain.com;branch=z9hG4bK776sgdkse
+Max-Forwards: 70
+From: sip:user1@domain.com
+To: sip:user2@domain.com
+Call-ID: asd88asd77a@1.2.3.4
+CSeq: 1 MESSAGE
+Content-Type: text/plain
+Content-Length: 18
+
+
+
+
+
+User1 forwards this message to the server for domain.com.  The proxy
+receives this request, and recognizes that it is the server for
+domain.com.  It looks up user2 in its database (built up through
+registrations), and finds a binding from sip:user2@domain.com to
+sip:user2@user2pc.domain.com.  It forwards the request to user2.  The
+resulting message, F2, looks like:
+
+
+
+Via: SIP/2.0/TCP proxy.domain.com;branch=z9hG4bK123dsghds
+MESSAGE sip:user2@domain.com SIP/2.0
+Via: SIP/2.0/TCP user1pc.domain.com;branch=z9hG4bK776sgdkse
+Max-Forwards: 69
+From: sip:user1@domain.com
+To: sip:user2@domain.com
+Call-ID: asd88asd77a@1.2.3.4
+CSeq: 1 MESSAGE
+Content-Type: text/plain
+Content-Length: 18
